@@ -12,7 +12,7 @@ body {
 }
 body {
   background: #2e2e2e;
-  color: #444;
+  color: #ababab;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   font-weight: lighter;
@@ -39,7 +39,7 @@ a {
   padding: 2em;
 }
 header {
-  background: #fff;
+  background: #2e2e2e;
   color: #2e2e2e;
   font-size: 1.8em;
   margin-bottom: 1.1em;
@@ -71,7 +71,7 @@ nav span {
   display: inline;
 }
 nav.breadcrumbs a {
-  color: #444;
+  color: #ababab;
   text-decoration: none;
 }
 #albums,
@@ -162,7 +162,7 @@ body {
 }
 body {
   background: #2e2e2e;
-  color: #444;
+  color: #ababab;
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   font-weight: lighter;
@@ -189,7 +189,7 @@ a {
   padding: 2em;
 }
 header {
-  background: #fff;
+  background: #2e2e2e;
   color: #2e2e2e;
   font-size: 1.8em;
   margin-bottom: 1.1em;
@@ -221,7 +221,7 @@ nav span {
   display: inline;
 }
 nav.breadcrumbs a {
-  color: #444;
+  color: #ababab;
   text-decoration: none;
 }
 #albums,
