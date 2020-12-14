@@ -32,25 +32,18 @@
     <a class="breadcrumb-item" href="index.html">Home</a>
       </nav>
     
-        <!--
-          Featured album slider (on homepage only)
-        -->
-        <ul id="lightSlider">
-                  <li data-thumb="media/thumbs/1/2020-12-09.png" data-src="media/large/1/2020-12-09.png">
-                    <img src="media/large/1/2020-12-09.png" alt="2020-12-09.png">
-                  </li>
-                  <li data-thumb="media/thumbs/1/2020-09-01.png" data-src="media/large/1/2020-09-01.png">
-                    <img src="media/large/1/2020-09-01.png" alt="2020-09-01.png">
-                  </li>
-                  <li data-thumb="media/thumbs/1/2020-08-24.png" data-src="media/large/1/2020-08-24.png">
-                    <img src="media/large/1/2020-08-24.png" alt="2020-08-24.png">
-                  </li>
-        </ul>
     
       <!--
         Nested albums, if any
       -->
       <div id="albums" class="justified-gallery">
+            <a href="featured.html">
+              <img src="media/small/featured/2020-12-09.png" alt="">
+              <div class="caption" style="display: inline-block">
+                <h3>featured</h3>
+                <div class="summary">3 photos</div>
+              </div>
+            </a>
             <a href="2020-Q4.html">
               <img src="media/small/2020 Q4/2020-12-13.png" alt="">
               <div class="caption" style="display: inline-block">
@@ -155,7 +148,7 @@
       });
     </script>
 
-      <script id="slider-js" data-interval="5000">
+      <script id="slider-js" data-interval="">
         $(document).ready(function () {
           let waitTime = 1000;
 
