@@ -1,3 +1,6 @@
+# Deployment
+Run `bundle exec jekyll serve` for local testing, and `jekyll build` once done. Copy the contents of the generated `_site` folder into the sid-devic.github.io repository (cloned locally).
+
 # The Minimal theme
 
 [![Build Status](https://travis-ci.org/pages-themes/minimal.svg?branch=master)](https://travis-ci.org/pages-themes/minimal) [![Gem Version](https://badge.fury.io/rb/jekyll-theme-minimal.svg)](https://badge.fury.io/rb/jekyll-theme-minimal)
