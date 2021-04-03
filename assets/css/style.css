@@ -463,7 +463,7 @@ footer {
     font-size: 12pt;
     color: #444; } }
 h1, h2, h4, h5, h6 {
-  color: #d3cfc9; }
+  color: #e7e3dc; }
 
 h4, h5, h6 {
   color: #bab4ab; }
@@ -480,7 +480,7 @@ h2, h3 {
 
 body {
   background-color: #181a1b;
-  color: #a0988b; }
+  color: #b6ad9f; }
 
 a {
   color: #53a3dc;
@@ -488,6 +488,15 @@ a {
 
 u {
   color: #bab4ab; }
+
+.sm-icon {
+  width: 35px;
+  height: 35px; }
+
+.sm-icon:hover {
+  width: 35px;
+  height: 35px;
+  filter: contrast(190%); }
 
 ::selection {
   background-color: #004daa !important;
