@@ -462,3 +462,54 @@ footer {
     padding: 0.4in;
     font-size: 12pt;
     color: #444; } }
+h1, h2, h4, h5, h6 {
+  color: #d3cfc9; }
+
+h4, h5, h6 {
+  color: #bab4ab; }
+
+header {
+  color: #bdb7af; }
+
+html, body, input, textarea, select, button {
+  border-color: #736b5e;
+  color: #e8e6e3; }
+
+h2, h3 {
+  color: #c4bfb7; }
+
+body {
+  background-color: #181a1b;
+  color: #a0988b; }
+
+a {
+  color: #53a3dc;
+  text-decoration-color: initial; }
+
+u {
+  color: #bab4ab; }
+
+::selection {
+  background-color: #004daa !important;
+  color: #e8e6e3 !important; }
+
+::-webkit-scrollbar {
+  background-color: #202324;
+  color: #aba499; }
+
+::-webkit-scrollbar-corner {
+  background-color: #181a1b; }
+
+::-webkit-scrollbar-thumb {
+  background-color: #454a4d; }
+
+::selection {
+  background-color: #004daa !important;
+  color: #e8e6e3 !important; }
+
+blockquote {
+  border-left-color: #373c3e; }
+
+a:hover, a:focus {
+  color: #75c0f7;
+  font-weight: bold; }
