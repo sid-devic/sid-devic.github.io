@@ -522,3 +522,157 @@ blockquote {
 a:hover, a:focus {
   color: #75c0f7;
   font-weight: bold; }
+
+/* Publication Toggle Styles */
+.publication-toggle-container {
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 160px;
+  height: 32px;
+}
+
+.toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-label {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2c2c2c;
+  border: 1px solid #4a4a4a;
+  border-radius: 16px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.toggle-label:hover {
+  background-color: #3a3a3a;
+  border-color: #5a5a5a;
+}
+
+.toggle-text {
+  color: #b6ad9f;
+  font-size: 11px;
+  font-weight: 600;
+  transition: 0.3s;
+  z-index: 2;
+  position: relative;
+  text-align: center;
+  flex: 1;
+  line-height: 1.1;
+  letter-spacing: 0.3px;
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: 28px;
+  width: 78px;
+  background-color: #267CB9;
+  border-radius: 14px;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.toggle-input:checked + .toggle-label .toggle-slider {
+  transform: translateX(78px);
+}
+
+.toggle-input:checked + .toggle-label {
+  background-color: #2c2c2c;
+}
+
+.toggle-input:checked + .toggle-label .toggle-text:first-child {
+  color: #b6ad9f;
+}
+
+.toggle-input:checked + .toggle-label .toggle-text:last-child {
+  color: #b6ad9f;
+}
+
+.toggle-input:not(:checked) + .toggle-label .toggle-text:first-child {
+  color: #b6ad9f;
+}
+
+.toggle-input:not(:checked) + .toggle-label .toggle-text:last-child {
+  color: #b6ad9f;
+}
+
+/* Topic sections */
+.topic-section {
+  margin-bottom: 25px;
+}
+
+.topic-section h4 {
+  color: #c4bfb7;
+  margin: 20px 0 10px 0;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid #4a4a4a;
+  padding-bottom: 5px;
+}
+
+.topic-description {
+  color: #b6ad9f;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 8px 0 15px 0;
+}
+
+.publication-view {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Publications container styling */
+#publications-container {
+  background-color: #2a2a2a;
+  border: 1px solid #5a5a5a;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+#publications-container:hover {
+  border-color: #6a6a6a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.publication-legend {
+  color: #b6ad9f;
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+/* Year sections */
+.year-section {
+  margin-bottom: 20px;
+}
+
+.year-section h4 {
+  color: #c4bfb7;
+  margin: 15px 0 8px 0;
+  font-size: 15px;
+  font-weight: 600;
+  border-bottom: 1px solid #4a4a4a;
+  padding-bottom: 3px;
+}
