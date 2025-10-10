@@ -676,3 +676,21 @@ a:hover, a:focus {
   border-bottom: 1px solid #4a4a4a;
   padding-bottom: 3px;
 }
+
+/* Follow-up note styling */
+.follow-up-note {
+  color: #a8b5c4 !important;
+  font-style: italic;
+  margin-top: 4px;
+  display: block;
+}
+
+.follow-up-note a {
+  color: #7a9cc4 !important;
+  text-decoration: underline;
+}
+
+.follow-up-note a:hover {
+  color: #9bb8d4 !important;
+  font-weight: bold;
+}
