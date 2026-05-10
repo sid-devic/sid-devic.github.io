@@ -390,7 +390,8 @@ strong {
 
 section {
   width: 700px;
-  float: right;
+  float: none;
+  margin: 0 auto;
   padding-bottom: 50px; }
 
 small {
@@ -403,10 +404,11 @@ hr {
   margin: 0 0 20px; }
 
 footer {
-  width: 270px;
-  float: left;
-  position: fixed;
-  bottom: 50px;
+  width: 700px;
+  float: none;
+  position: static;
+  margin: 0 auto;
+  padding-bottom: 30px;
   font-size: 14px;
   -webkit-font-smoothing: subpixel-antialiased; }
 
@@ -424,8 +426,7 @@ footer {
     padding-right: 320px; }
 
   section {
-    border: 1px solid #e5e5e5;
-    border-width: 1px 0;
+    border: none;
     padding: 20px 0;
     margin: 0 0 20px; }
 
@@ -675,6 +676,186 @@ a:hover, a:focus {
   font-weight: 600;
   border-bottom: 1px solid #4a4a4a;
   padding-bottom: 3px;
+}
+
+/* Name panel */
+.name-panel {
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  background-color: #222527;
+  border: 1px solid #3a3f42;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.name-panel h1 {
+  margin: 0;
+  font-size: 22px;
+  color: #e7e3dc;
+}
+
+.name-panel-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: #b6ad9f;
+}
+
+.name-panel-links .sm-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.name-panel-links .sm-icon:hover {
+  width: 22px;
+  height: 22px;
+}
+
+/* Email + social links below About heading */
+.about-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #b6ad9f;
+}
+
+.about-meta .sm-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.about-meta .sm-icon:hover {
+  width: 22px;
+  height: 22px;
+}
+
+/* Header banner image */
+.header-banner {
+  position: relative;
+  width: calc(100% + 60px);
+  margin-left: -30px;
+  margin-right: -30px;
+  margin-bottom: 0;
+  border-radius: 0;
+  overflow: hidden;
+  height: 200px;
+}
+
+.header-banner::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, #181a1b);
+  pointer-events: none;
+}
+
+.header-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  display: block;
+  filter: saturate(0.85) brightness(0.9);
+}
+
+.header-banner--placeholder {
+  background: linear-gradient(135deg, #1e2a38 0%, #243040 30%, #1a2535 60%, #212c3a 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-banner--placeholder::after {
+  content: "[ header image ]";
+  color: #4a5568;
+  font-size: 13px;
+  font-style: italic;
+  letter-spacing: 0.05em;
+}
+
+/* Name/contact overlay on the header banner */
+.banner-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 12px 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.banner-overlay--right {
+  justify-content: flex-end;
+}
+
+.banner-caption {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  font-size: 11px;
+  font-style: italic;
+  color: #e8e6e3;
+  text-shadow: 0 1px 6px rgba(0,0,0,1), 0 0 8px rgba(0,0,0,0.8);
+  letter-spacing: 0.02em;
+}
+
+.banner-overlay h1 {
+  margin: 0;
+  font-size: 26px;
+  color: #e7e3dc;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+}
+
+.contact-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 0 18px;
+  font-size: 13px;
+  color: #b6ad9f;
+}
+
+.contact-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+/* Fun heading inside banner overlay */
+h3#fun {
+  margin: 0;
+  font-size: 26px;
+  color: #e7e3dc;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.8);
+}
+
+.header-banner--fun {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+
+/* About heading bleeds into banner */
+h2#about {
+  position: relative;
+  z-index: 1;
+  margin-top: -1.4em;
+  margin-bottom: 18px;
+  padding-left: 30px;
+  font-size: 26px;
+  color: #e7e3dc;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.7);
 }
 
 /* Follow-up note styling */
