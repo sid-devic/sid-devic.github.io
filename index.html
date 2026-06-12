@@ -46,7 +46,7 @@
 <hr>
 
 <p>
-I am currently a Researcher and Member of Technical Staff at <a href="" target="_blank">Bespoke Labs</a> in Mountain View, CA. These days, I am broadly interested in data quality, as well as understanding and improving frontier capabilities. I am also curious about "auto-research" and evolutionary approaches, applications in scientific domains, and uncertainty quantification.
+I am currently a Member of Technical Staff at <a href="" target="_blank">Bespoke Labs</a> in Mountain View, CA. These days, I am broadly interested in data and understanding / improving frontier capabilities.
 </p>
 
 <p>I completed my PhD in the 
@@ -94,13 +94,11 @@ and <a href="https://personal.utdallas.edu/~benjamin.raichel/" target="_blank">B
         <div id="publications-container">
           <!-- Toggle Switch -->
           <div class="publication-toggle-container">
-            <div class="toggle-switch">
-              <input type="checkbox" id="publication-toggle" class="toggle-input">
-              <label for="publication-toggle" class="toggle-label">
-                <span class="toggle-text">topic</span>
-                <span class="toggle-text">year</span>
-                <span class="toggle-slider"></span>
-              </label>
+            <div class="toggle-switch" data-view="selected">
+              <span class="toggle-slider"></span>
+              <button type="button" class="toggle-text" data-view="selected">selected</button>
+              <button type="button" class="toggle-text" data-view="topic">by topic</button>
+              <button type="button" class="toggle-text" data-view="year">by year</button>
             </div>
           </div>
           
@@ -109,8 +107,18 @@ and <a href="https://personal.utdallas.edu/~benjamin.raichel/" target="_blank">B
             (<b>αβ</b>) indicates alphabetical order, standard in theoretical computer science. <br />
             (*) indicates equal contribution.
           </div>
-          <!-- Topic-based view (default) -->
-          <div id="topic-view" class="publication-view">
+          <!-- Selected view (default) -->
+          <div id="selected-view" class="publication-view">
+            <div class="topic-section">
+              <h4>Selected Publications</h4>
+              <ul>
+                <!-- Will be populated by JavaScript -->
+              </ul>
+            </div>
+          </div>
+
+          <!-- Topic-based view -->
+          <div id="topic-view" class="publication-view" style="display: none;">
             <div class="topic-section">
               <h4>Uncertainty Quantification and Calibration</h4>
               <p class="topic-description">Machine-learned models and systems which "know what they don't know" is a critical requirement of trustworthy AI. How should we measure and quantify such model uncertainty in practice? How does the problem change when models are deployed in the wild, especially in settings with diverse and non-homogenous populations? Finally, what does uncertainty quantification mean for large language models, and how is it impacted by reasoning post-training?</p>
@@ -260,6 +268,16 @@ Also check out <a href="https://docs.google.com/spreadsheets/d/1MtKm6AFkHxh_niUa
       // Single source of truth for all publications
       const allPublications = [
         {
+          title: 'Uncertainty and Trustworthiness in Modern Algorithmic Systems',
+          authors: 'Siddartha Devic',
+          venue: 'PhD Thesis, University of Southern California',
+          year: 2026,
+          topic: 'PhD Thesis',
+          selected: true,
+          selectedRank: 1,
+          links: '[<a href="./assets/files/dissertation_final.pdf" target="_blank">pdf</a>]'
+        },
+        {
           title: 'Flexible Routing via Uncertainty Decomposition',
           authors: 'Charlotte Peale, Siddartha Devic, Parikshit Gopalan, Udi Wieder, Aravind Gollakota',
           year: 2026,
@@ -278,6 +296,8 @@ Also check out <a href="https://docs.google.com/spreadsheets/d/1MtKm6AFkHxh_niUa
           authors: 'Siddartha Devic, Charlotte Peale, Arwen Bradley, Sinead Williamson, Preetum Nakkiran, Aravind Gollakota',
           year: 2025,
           topic: 'Uncertainty Quantification and Calibration',
+          selected: true,
+          selectedRank: 2,
           links: '[<a href="https://arxiv.org/abs/2510.10409" target="_blank">arxiv</a>]'
         },
         {
@@ -332,6 +352,8 @@ Also check out <a href="https://docs.google.com/spreadsheets/d/1MtKm6AFkHxh_niUa
           venue: 'Conference on Learning Theory (COLT 2024)',
           year: 2024,
           topic: 'Foundations of Machine Learning',
+          selected: true,
+          selectedRank: 5,
           links: '[<a href="https://arxiv.org/abs/2309.13692" target="_blank">arxiv</a>] [<a href="./assets/files/Regularization_Slides.pdf" target="_blank">slides</a>] [<a href="https://twitter.com/julian_asilis/status/1715417026066632717" target="_blank">twitter thread</a>]'
         },
         {
@@ -340,6 +362,8 @@ Also check out <a href="https://docs.google.com/spreadsheets/d/1MtKm6AFkHxh_niUa
           venue: 'AAAI 2026 <span style="color: hsl(295, 44%, 70%); font-weight: bold;">(Oral, top ~8% in AI for Social Impacts track)</span>',
           year: 2026,
           topic: 'Trustworthy Algorithmic Marketplaces and Recommender Systems',
+          selected: true,
+          selectedRank: 3,
           links: '[<a href="https://arxiv.org/abs/2511.10752" target="_blank">arxiv</a>] [<a href="https://underline.io/events/501/sessions/21660/lecture/139058-an-external-fairness-evaluation-of-linkedin-talent-search" target="_blank">talk</a>]'
         },
         {
@@ -349,6 +373,8 @@ Also check out <a href="https://docs.google.com/spreadsheets/d/1MtKm6AFkHxh_niUa
           additional: 'Non-archival at Symposium on Foundations of Responsible Computing (FORC 2024)',
           year: 2024,
           topic: 'Trustworthy Algorithmic Marketplaces and Recommender Systems',
+          selected: true,
+          selectedRank: 4,
           links: '[<a href="https://arxiv.org/abs/2402.09326" target="_blank">arxiv</a>] [<a href="https://www.youtube.com/watch?v=qCFDnBHfGtk" target="_blank">video</a>]'
         },
         {
@@ -421,6 +447,16 @@ Also check out <a href="https://docs.google.com/spreadsheets/d/1MtKm6AFkHxh_niUa
         }
         html += pub.links + '</p></li>';
         return html;
+      }
+
+      // Function to populate selected view
+      function populateSelectedView() {
+        const selectedView = document.getElementById('selected-view');
+        const ul = selectedView.querySelector('ul');
+        const selectedPubs = allPublications
+          .filter(pub => pub.selected)
+          .sort((a, b) => (a.selectedRank ?? Infinity) - (b.selectedRank ?? Infinity));
+        ul.innerHTML = selectedPubs.map(createPublicationHTML).join('');
       }
 
       // Function to populate topic view
@@ -505,30 +541,24 @@ Also check out <a href="https://docs.google.com/spreadsheets/d/1MtKm6AFkHxh_niUa
         }
       }
 
-      // Function to toggle between views
-      function togglePublicationView() {
-        const toggle = document.getElementById('publication-toggle');
-        const topicView = document.getElementById('topic-view');
-        const yearView = document.getElementById('chronological-view');
-        
-        if (toggle.checked) {
-          // Show year view
-          topicView.style.display = 'none';
-          yearView.style.display = 'block';
-        } else {
-          // Show topic view
-          topicView.style.display = 'block';
-          yearView.style.display = 'none';
-        }
+      // Function to switch between views
+      function setPublicationView(viewName) {
+        const toggleSwitch = document.querySelector('.toggle-switch');
+        toggleSwitch.dataset.view = viewName;
+        document.getElementById('selected-view').style.display = viewName === 'selected' ? 'block' : 'none';
+        document.getElementById('topic-view').style.display = viewName === 'topic' ? 'block' : 'none';
+        document.getElementById('chronological-view').style.display = viewName === 'year' ? 'block' : 'none';
       }
 
       // Initialize on page load
       document.addEventListener('DOMContentLoaded', function() {
+        populateSelectedView();
         populateTopicView();
         populateYearView();
-        
-        const toggle = document.getElementById('publication-toggle');
-        toggle.addEventListener('change', togglePublicationView);
+
+        document.querySelectorAll('.toggle-switch .toggle-text').forEach(btn => {
+          btn.addEventListener('click', () => setPublicationView(btn.dataset.view));
+        });
       });
     </script>
     

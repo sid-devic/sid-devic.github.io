@@ -533,50 +533,21 @@ a:hover, a:focus {
 
 .toggle-switch {
   position: relative;
-  display: inline-block;
-  width: 160px;
+  display: inline-flex;
+  align-items: center;
+  width: 240px;
   height: 32px;
-}
-
-.toggle-input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.toggle-label {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   background-color: #2c2c2c;
   border: 1px solid #4a4a4a;
   border-radius: 16px;
-  transition: 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 4px;
+  padding: 0;
+  overflow: hidden;
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
-.toggle-label:hover {
+.toggle-switch:hover {
   background-color: #3a3a3a;
   border-color: #5a5a5a;
-}
-
-.toggle-text {
-  color: #b6ad9f;
-  font-size: 11px;
-  font-weight: 600;
-  transition: 0.3s;
-  z-index: 2;
-  position: relative;
-  text-align: center;
-  flex: 1;
-  line-height: 1.1;
-  letter-spacing: 0.3px;
 }
 
 .toggle-slider {
@@ -587,32 +558,35 @@ a:hover, a:focus {
   width: 78px;
   background-color: #267CB9;
   border-radius: 14px;
-  transition: 0.3s;
+  transition: transform 0.3s;
   z-index: 1;
 }
 
-.toggle-input:checked + .toggle-label .toggle-slider {
-  transform: translateX(78px);
-}
+.toggle-switch[data-view="selected"] .toggle-slider { transform: translateX(0); }
+.toggle-switch[data-view="topic"] .toggle-slider { transform: translateX(80px); }
+.toggle-switch[data-view="year"] .toggle-slider { transform: translateX(160px); }
 
-.toggle-input:checked + .toggle-label {
-  background-color: #2c2c2c;
-}
-
-.toggle-input:checked + .toggle-label .toggle-text:first-child {
+.toggle-text {
+  background: none;
+  border: none;
   color: #b6ad9f;
+  font-size: 11px;
+  font-weight: 600;
+  transition: color 0.3s;
+  z-index: 2;
+  position: relative;
+  text-align: center;
+  flex: 1;
+  line-height: 1.1;
+  letter-spacing: 0.3px;
+  padding: 0;
+  height: 100%;
+  cursor: pointer;
+  font-family: inherit;
 }
 
-.toggle-input:checked + .toggle-label .toggle-text:last-child {
-  color: #b6ad9f;
-}
-
-.toggle-input:not(:checked) + .toggle-label .toggle-text:first-child {
-  color: #b6ad9f;
-}
-
-.toggle-input:not(:checked) + .toggle-label .toggle-text:last-child {
-  color: #b6ad9f;
+.toggle-text:focus {
+  outline: none;
 }
 
 /* Topic sections */
